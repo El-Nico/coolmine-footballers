@@ -1,0 +1,37 @@
+each event has its own details filtered by
+date
+so two  dropdwons e.g september 2018
+only an addmin can register another as admin
+
+for all routes
+for clickable
+expand event button
+register for event button
+for screens//////
+about/for nav
+/contact//nope just put connors num
+//////////////
+/event/:id
+/nextevent/register
+/about
+////////////api
+/add/event/type?
+/edit/event/:id(admin)
+/add/comment/:eventid
+/delete/comment/:commentid(protected)
+my routes
+/ == homepage
+
+cardsplan
+***************************************
+*eventTitle: time/date venue
+*
+*eventDetail
+*_____________________________________
+*paragraph/htmlbuilder
+
+
+------------------footer/popularfooterbarwithbunch of menus
+contact connors num          login as admin
+
+ccopright

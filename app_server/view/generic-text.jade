@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .row
+    .col
+        nav.navbar.navbar-expand-md.navbar-dark.bg-dark.sticky-top
+            button.navbar-toggler(data-toggle="collapse", data-target="#collapse_target")
+                span.navbar-toggler-icon
+            a.navbar-brand(href="/") navigation
+            .collapse.navbar-collapse.justify-content-end(id="collapse_target")
+                ul.navbar-nav
+                    li.nav-item
+                        a.nav-link.navbar-right(href="/about") About
+  h1= title
+  hr
+  p= content

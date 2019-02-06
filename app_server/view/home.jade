@@ -1,0 +1,56 @@
+extends layout
+include includes/sharedHTMLfunctions
+
+block content
+    header
+        .container.col-md-12
+            .row
+                .col
+                    #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+                        ol.carousel-indicators
+                            li.active(data-target='#carouselExampleIndicators', data-slide-to='0') 
+                            li(data-target='#carouselExampleIndicators', data-slide-to='1')
+                            li(data-target='#carouselExampleIndicators', data-slide-to='2')
+                            li(data-target='#carouselExampleIndicators', data-slide-to='3')
+
+                        .carousel-inner(style="max-height:400px")
+                            .carousel-item.active
+                                img.d-block.w-100(src='/images/carousel/foot-stadium.jpeg', style="width:100%",alt='First slide')    
+                            .carousel-item
+                                img.d-block.w-100(src='/images/carousel/leg.jpeg',alt='Second slide') 
+                            .carousel-item
+                                img.d-block.w-100(src='/images/carousel/overhead-pitch.jpeg',alt='Third slide')
+                            .carousel-item
+                                img.d-block.w-100(src='/images/carousel/silhouette.jpeg',alt='fourth slide')
+
+                        a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+                            span.carousel-control-prev-icon(aria-hidden='true')
+                            span.sr-only Previous
+                        a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+                            span.carousel-control-next-icon(aria-hidden='true')
+                            span.sr-only Next
+            .row
+                .col
+                    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.sticky-top(id="naviga")
+                        button.navbar-toggler(data-toggle="collapse", data-target="#collapse_target")
+                            span.navbar-toggler-icon
+                        a.navbar-brand(href="/") navigation
+                        .collapse.navbar-collapse.justify-content-end(id="collapse_target")
+                            ul.navbar-nav
+                                li.nav-item
+                                    a.nav-link.navbar-right(href="/about") About
+    section
+        .container.col-md-12
+            .row
+                .col
+                    each event in events
+                        .card.mt-5
+                            +eventType(event)
+                            .card-body
+                                h6.card-subtitle= event.eventTypeSubtitle
+                                hr
+                                p.card-text= event.eventDetails
+
+            .row
+                .col
+                    button.btn-success.mt-5 view more cards
