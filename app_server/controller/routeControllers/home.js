@@ -3,44 +3,56 @@ module.exports.homeCtrl=function(req, res, next) {
     res.render('home', {
         events:[
             {
-                eventType: "ordinary",
+                eventType: "football",
                 isNextEvent:true,
-                eventTitle:"football(+glyphicon)",
+                eventTitle:"football",
                 eventDate: "sunday feb 17 2019",
-                eventTypeSubtitle:"eventDetails",
-                eventDetails:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quas sequi cupiditate minus dicta. Nemo possimus repellat natus alias? Est, veniam. Perspiciatis fuga nulla saepe possimus laboriosam odio sunt praesentium?"
+                eventVenue:"Coolmine sports and leisure centre",
+                eventDetails:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quas sequi cupiditate minus dicta. Nemo possimus repellat natus alias? Est, veniam. Perspiciatis fuga nulla saepe possimus laboriosam odio sunt praesentium?",
+                participants:[
+                    "Connor","iphi","ceph","tamu","elder Ropo","Abel","Nico","caddy","alex","axel"
+                ]
             },
             {
-                eventType: "ordinary",
+                eventType: "football",
                 isNextEvent:false,
-                eventTitle:"football(+glyphicon)",
+                eventTitle:"football",
                 eventDate: "sunday feb 17 2019",
-                eventTypeSubtitle:"eventDetails",
-                eventDetails:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quas sequi cupiditate minus dicta. Nemo possimus repellat natus alias? Est, veniam. Perspiciatis fuga nulla saepe possimus laboriosam odio sunt praesentium?"
+                eventVenue:"Coolmine sports and leisure centre",
+                eventDetails:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quas sequi cupiditate minus dicta. Nemo possimus repellat natus alias? Est, veniam. Perspiciatis fuga nulla saepe possimus laboriosam odio sunt praesentium?",
+                participants:[
+                    "Connor","iphi","ceph","tamu","elder Ropo","Abel","Nico","caddy","alex","axel"
+                ]
             },
             {
                 eventType: "announcement",
                 isNextEvent:false,
                 eventTitle:"Announcement(+glyphicon)",
                 eventDate: "sunday feb 17 2019",
-                eventTypeSubtitle:"announcementDetails",
+                eventVenue:"Coolmine sports and leisure centre",
                 eventDetails:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quas sequi cupiditate minus dicta. Nemo possimus repellat natus alias? Est, veniam. Perspiciatis fuga nulla saepe possimus laboriosam odio sunt praesentium?"
             },
             {
-                eventType: "ordinary",
+                eventType: "football",
                 isNextEvent:false,
-                eventTitle:"football(+glyphicon)",
+                eventTitle:"football",
                 eventDate:"sunday feb 17 2019",
-                eventTypeSubtitle:"eventDetails",
-                eventDetails:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quas sequi cupiditate minus dicta. Nemo possimus repellat natus alias? Est, veniam. Perspiciatis fuga nulla saepe possimus laboriosam odio sunt praesentium?"
+                eventVenue:"Coolmine sports and leisure centre",
+                eventDetails:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quas sequi cupiditate minus dicta. Nemo possimus repellat natus alias? Est, veniam. Perspiciatis fuga nulla saepe possimus laboriosam odio sunt praesentium?",
+                participants:[
+                    "Connor","iphi","ceph","tamu","elder Ropo","Abel","Nico","caddy","alex","axel"
+                ]          
             },
             {
-                eventType: "ordinary",
+                eventType: "football",
                 isNextEvent:false,
-                eventTitle:"football(+glyphicon)",
+                eventTitle:"football",
                 eventDate: "sunday feb 17 2019",
-                eventTypeSubtitle:"eventDetails",
-                eventDetails:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quas sequi cupiditate minus dicta. Nemo possimus repellat natus alias? Est, veniam. Perspiciatis fuga nulla saepe possimus laboriosam odio sunt praesentium?"
+                eventVenue:"Coolmine sports and leisure centre",
+                eventDetails:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam quas sequi cupiditate minus dicta. Nemo possimus repellat natus alias? Est, veniam. Perspiciatis fuga nulla saepe possimus laboriosam odio sunt praesentium?",
+                participants:[
+                    "Connor","iphi","ceph","tamu","elder Ropo","Abel","Nico","caddy","alex","axel"
+                ]            
             }
         ]
     });

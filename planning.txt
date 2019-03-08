@@ -15,6 +15,11 @@ about/for nav
 /nextevent/register
 /about
 ////////////api
+mongodb://<dbuser>:<dbpassword>@ds125125.mlab.com:25125/footballerscloud
+mongo ds125125.mlab.com:25125/footballerscloud -u el-nico -p 123@abc2
+mongorestore -h ds125125.mlab.com:25125 -d footballerscloud -u el-nico -p 123@abc2 ~/tmp/mongodump/coolmine-footballers
+ mongodump -h localhost:27017 -d coolmine-footballers -o ~/tmp/mongodump
+mkdir -p ~/tmp/mongodump
 /add/event/type?
 /edit/event/:id(admin)
 /add/comment/:eventid
@@ -25,6 +30,11 @@ my routes
 cardsplan
 ***************************************
 *eventTitle: time/date venue
+*regbutton
+**hiddendivNO**participants
+*---------------------
+*name*5
+*enter yourname **enter button
 *
 *eventDetail
 *_____________________________________

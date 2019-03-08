@@ -1,9 +1,18 @@
+require('dotenv').load();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var indexRouter = require('./app_server/controller/routes/index');
+var passport = require('passport');
+require('./app_api/model/dbConfig');
+require('./app_api/config/passport');
+var uglifyJs= require('uglify-js');
+var fs= require('fs');
+
+//var indexRouter = require('./app_server/controller/routes/index');
+var apiRouter = require('./app_api/controller/api_routes/routes');
+
 
 var app = express();
 
@@ -16,8 +25,47 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'app_client')));
 
-app.use('/', indexRouter);
+
+//index router commented out because
+//ang app
+//app.use('/', indexRouter);
+//passport should be initialized here cos
+//it will be needed for api auth
+app.use(passport.initialize());
+app.use('/api',apiRouter);
+
+//uglifying and minifying all angular files
+var appClientFiles=[
+  fs.readFileSync('app_client/app.js', "utf-8")
+]
+var uglified = uglifyJs.minify(appClientFiles,{compress:false});
+fs.writeFile('public/angular/footballers.min.js',uglified.code, function(err){
+  if(err){
+    console.log("minification error "+err);
+  }else {
+    console.log('Script generated and saved: footballers.min.js');
+  }
+})
+//the reason why this works even its so generic is
+//because the rest middleware below are error 
+//handlers and ang app can handle its own errors
+//basically a well take it from here line
+//ANG APP PLACED BEFORE ERROR HANDLERS
+app.use(function(req, res){
+  res.sendFile(path.join(__dirname, 'app_client', 'index.html'));
+})
+
+//place this before generic error handlers
+//to catch route guard errors
+//catch unauthorized error
+app.use(function(err, req, res, next){
+  if(err.name==='UnauthorizedError'){
+    res.status(401);
+    res.json({"message" : err.name + ": "+ err.message});
+  }
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

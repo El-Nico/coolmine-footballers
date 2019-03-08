@@ -1,0 +1,64 @@
+<div ng-if="!cvm.ran">{{cvm.storeEvent(event)}}</div>
+<div ng-if="cvm.isFootball(cvm.event.type)" class="card mt-5">
+    <div class="card-header bg-primary">
+        <h4 class="card-title">{{cvm.event.title}}&nbsp;<i class="far fa-futbol"></i></h4>
+        <label for="editTitle" ng-show="cvm.isEditing">Edit Title</label>
+        <input type="text" name="" id="editTitle" ng-show="cvm.isEditing" ng-model="cvm.event.title">
+        <h5>{{cvm.event.subtitle}}</h5>
+        <label for="editSubtitle" ng-show="cvm.isEditing">Edit Subtitle</label>
+        <input type="text" name="" id="editSubtitle" ng-show="cvm.isEditing" ng-model="cvm.event.subtitle"><br>
+        <a class="btn btn-success" href="#" ng-show="cvm.event.isNextEvent" ng-click="cvm.register()">register for next event</a>
+        <label for="editNext" ng-show="cvm.isEditing">add/remove register button</label>
+        <input type="checkbox" name="" id="editNext" ng-show="cvm.isEditing" ng-model="cvm.event.isNextEvent">
+        <a class ="btn btn-danger float-right" href="#" ng-show="cvm.isEditing" ng-click="cvm.del()">delete this event</a>
+        <a class ="btn btn-info float-right" href="#" ng-show="cvm.isLoggedIn" ng-click="cvm.editing()">{{cvm.editButton}}</a>
+    </div>
+    <div class="card-body">
+        <h6 class="card-subtitle">Participants</h6>
+
+
+
+        <label for="addParticipant" ng-show="cvm.isRegistering">Write your name here<span><i class="fas fa-hand-point-right"></i></span></label>
+        <input type="text" name="" id="addParticipant" ng-show="cvm.isRegistering" ng-model="cvm.registerContent" ng-keyup="cvm.keypress()">
+        <a class="btn btn-success" href="#" ng-show="cvm.isRegistering" ng-click="cvm.addParticipant()">done</a>
+
+        
+        
+        
+        <label for="editParticipants" ng-show="cvm.isEditing">Edit Participants</label>
+        <input type="text" name="" id="editParticipants" ng-show="cvm.isEditing" ng-model="cvm.event.participants">
+        <hr />
+        <p class="card-text">{{cvm.event.participants}}</p>
+        <h6 class="card-subtitle">Event Details</h6>
+        <hr />
+        <p class="card-text">{{cvm.event.details}}</p>
+        <label for="editDetails" ng-show="cvm.isEditing">Edit Details</label>
+        <textarea name="" id="editDetails" cols="30" rows="10" ng-show="cvm.isEditing" ng-model="cvm.event.details"></textarea>
+        <!--a href="#">add image</a><a href="#">add video</a><a href="#">edit</a-->
+    </div>
+</div>
+</div>
+
+<!-- announcements-->
+<div ng-if="!cvm.isFootball(cvm.event.type)" class="card mt-5">
+    <div class="card-header bg-info">
+        <h4 class="card-title">{{cvm.event.title}}&nbsp;<i class="fas fa-bullhorn"></i></h4>
+        <label for="editAnnouncementTitle" ng-show="cvm.isEditing">Edit Announcement Title</label>
+        <input type="text" name="" id="editAnnouncementTitle" ng-show="cvm.isEditing" ng-model="cvm.event.title">
+        <h5>{{cvm.event.subtitle}}</h5>
+        <label for="editAnnouncementSubtitle" ng-show="cvm.isEditing">Edit Announcement Subtitle</label>
+        <input type="text" name="" id="editAnnouncementSubtitle" ng-show="cvm.isEditing" ng-model="cvm.event.subtitle">
+        <a class ="btn btn-danger float-right" href="#" ng-show="cvm.isEditing" ng-click="cvm.del()">delete this event</a>
+        <a class ="btn btn-info float-right" href="#" ng-show="cvm.isLoggedIn" ng-click="cvm.editing()">{{cvm.editButton}}</a>
+        
+    </div>
+    <div class="card-body">
+        <h6 class="card-subtitle">Announcement Details</h6>
+        <hr />
+        <p class="card-text">{{cvm.event.details}}</p>
+        <label for="editAnnouncementDetails" ng-show="cvm.isEditing">Edit Announcement Details</label>
+        <textarea name="" id="editAnnouncementDetails" cols="30" rows="10" ng-show="cvm.isEditing" ng-model="cvm.event.title"></textarea>
+        <!--a href="#">add image</a><a href="#">add video</a><a href="#">edit</a-->
+    </div>
+</div>
+</div>
