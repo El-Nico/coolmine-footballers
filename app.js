@@ -7,8 +7,6 @@ var logger = require('morgan');
 var passport = require('passport');
 require('./app_api/model/dbConfig');
 require('./app_api/config/passport');
-var uglifyJs= require('uglify-js');
-var fs= require('fs');
 
 //var indexRouter = require('./app_server/controller/routes/index');
 var apiRouter = require('./app_api/controller/api_routes/routes');
@@ -36,18 +34,6 @@ app.use(express.static(path.join(__dirname, 'app_client')));
 app.use(passport.initialize());
 app.use('/api',apiRouter);
 
-//uglifying and minifying all angular files
-var appClientFiles=[
-  fs.readFileSync('app_client/app.js', "utf-8")
-]
-var uglified = uglifyJs.minify(appClientFiles,{compress:false});
-fs.writeFile('public/angular/footballers.min.js',uglified.code, function(err){
-  if(err){
-    console.log("minification error "+err);
-  }else {
-    console.log('Script generated and saved: footballers.min.js');
-  }
-})
 //the reason why this works even its so generic is
 //because the rest middleware below are error 
 //handlers and ang app can handle its own errors
