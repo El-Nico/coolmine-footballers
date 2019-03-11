@@ -3,7 +3,9 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var uglifyJs = require("uglify-js");
 var logger = require('morgan');
+var fs = require('fs');
 var passport = require('passport');
 require('./app_api/model/dbConfig');
 require('./app_api/config/passport');
@@ -17,6 +19,32 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, '/app_server/view'));
 app.set('view engine', 'jade');
+
+var appClientFiles = [
+  fs.readFileSync('app_client/app.js', "utf8"),
+  fs.readFileSync("app_client/services/authentication.service.js", "utf8"),
+  fs.readFileSync('app_client/directives/navigation/navigation.directive.js', "utf8"),
+  fs.readFileSync('app_client/directives/navigation/navigation.controller.js', "utf8"),
+  fs.readFileSync('app_client/directives/carousel/carousel.directive.js', "utf8"),
+  fs.readFileSync('app_client/directives/footergen/footergen.directive.js', "utf8"),
+  fs.readFileSync('app_client/directives/footergen/footergen.controller.js', "utf8"),
+  fs.readFileSync('app_client/register/register.controller.js', "utf8"),
+  fs.readFileSync('app_client/login/login.controller.js', 'utf8'),
+  fs.readFileSync('app_client/createEvent/createEvent.controller.js', 'utf8'),
+  fs.readFileSync('app_client/home/home.controller.js', 'utf8'),
+  fs.readFileSync('app_client/directives/card/card.directive.js', 'utf8'),
+  fs.readFileSync('app_client/directives/card/card.controller.js', 'utf8'),
+];
+var uglified = uglifyJs.minify(appClientFiles, { compress: false });
+
+fs.writeFile('public/angular/footballers.min.js', uglified.code, function (err) {
+  if (err) {
+      console.log(err);
+  }
+  else {
+      console.log('Script generated and saved: footballers.min.js');
+  }
+});
 
 app.use(logger('dev'));
 app.use(express.json());
