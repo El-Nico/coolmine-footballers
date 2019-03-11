@@ -5,15 +5,15 @@
   </div>
 </header>
 <section>
-  <div class="container col-md-12">
+  <div class="container col-md-12 col-sm-12">
     <div class="row">
-      <div class="col">
+      <div class="col mt-5">
         <a href="/createEvent" class="btn btn-success" ng-show="vm.isLoggedIn">create event</a>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12 col-sm-12">
         <div ng-repeat="event in vm.events">
           <!-- <card type="vm.events.eventType" isNextEvent="vm.events.isNextEvent" title="vm.events.eventTitle" subtitle="vm.events.eventSubtitle" participants="vm.events.eventParticipants" details="vm.events.eventDetails"></card> -->
-          <card eventdir="event"></card>
+          <card class="c0l-md-12 col-sm-12" style="margin-top:0px" eventdir="event"></card>
         </div>
       </div>
     </div>

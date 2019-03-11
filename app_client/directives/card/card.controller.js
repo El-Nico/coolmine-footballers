@@ -89,6 +89,9 @@
         console.log('participant not added ' + response.data);
       });
     }
+    vm.dismissRegister= function(){
+      vm.isRegistering=false;
+    }
     vm.register = function () {
       vm.isRegistering = true;
     }

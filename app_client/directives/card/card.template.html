@@ -21,6 +21,7 @@
         <label for="addParticipant" ng-show="cvm.isRegistering">Write your name here<span><i class="fas fa-hand-point-right"></i></span></label>
         <input type="text" name="" id="addParticipant" ng-show="cvm.isRegistering" ng-model="cvm.registerContent" ng-keyup="cvm.keypress()">
         <a class="btn btn-success" href="#" ng-show="cvm.isRegistering" ng-click="cvm.addParticipant()">done</a>
+        <a class="btn btn-danger" href="#" ng-show="cvm.isRegistering" ng-click="cvm.dismissRegister()">cancel</a>
 
         
         

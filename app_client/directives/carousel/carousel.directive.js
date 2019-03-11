@@ -4,8 +4,7 @@
     function carousel(){
         return{
             restrict: 'EA',
-            templateUrl:'/directives/carousel/carousel.directive.html'
-
+            templateUrl:'/directives/carousel/carousel.template.html'
         }
     };
 })();
