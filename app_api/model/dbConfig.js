@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var dbUri = "mongodb://localhost/coolmine-footballers"
+var dbUri = "mongodb://localhost/coolmine-footballers";
 //process.env.NODE_ENV= 'production';
 if (process.env.NODE_ENV === 'production') {
     dbUri = 'mongodb://el-nico:123%40abc2@ds125125.mlab.com:25125/footballerscloud';
