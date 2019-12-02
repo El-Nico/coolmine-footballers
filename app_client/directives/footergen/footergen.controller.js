@@ -8,7 +8,7 @@
         vm.isLoggedIn = authentication.isLoggedIn();
         vm.logout = authentication.logout;
 
-        vm.loginLabel = vm.isLoggedIn ? "logout": "login as admin"; 
+        vm.loginLabel = vm.isLoggedIn ? "logout": "login as admin or use email=guest@coolballers.com, password=welcome-guest for admin privileges"; 
 
         vm.handleLabel= function(){
             if(vm.isLoggedIn){
