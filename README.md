@@ -8,7 +8,7 @@
 ## Title Details
 | Title             | Category        | Website URL                     |
 | ----------------- | --------------  |---------------------------------|
-| Coolmine Footballers | Fullstack CRUD |  | http://www.coolminefootballers.com/ |
+| Coolmine Footballers | Fullstack CRUD | http://www.coolminefootballers.com/ |
 
 ## Description
 an experimental web app that performs CRUD operations on a list of weekly football events, built using angularjs, bootstrap  and the MEAN stack
